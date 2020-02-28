@@ -37,6 +37,9 @@ env:
   - VERSION="13.0" TESTS="0" LINT_CHECK="0" MAKEPOT="0"
 
 install:
+  #  FIXME:
+  - git clone --branch 13.0-add_account_multi_vat_tbi https://github.com/acsone/account-fiscal-rule.git PR102
+  - rm -rf account_multi_vat && cp -ar PR102/account_multi_vat .
   - git clone --depth=1 https://github.com/OCA/maintainer-quality-tools.git ${HOME}/maintainer-quality-tools
   - export PATH=${HOME}/maintainer-quality-tools/travis:${PATH}
   - travis_install_nightly
